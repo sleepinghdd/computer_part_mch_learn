@@ -12,7 +12,7 @@
     <button type="button"  onclick="init()">Start</button>
     <div id="webcam-container"></div>
     <div id="label-container"></div>
-    <div id="dcpt"></div>
+    <div id="desc"></div>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script type="text/javascript">
@@ -20,9 +20,11 @@
         const URL = "./";
     
         let model, webcam, labelContainer, maxPredictions;
-        var description = document.getElementById("dcpt");
+        var desc;
         var total_predict;
         async function init() {
+            dexc = document.getElementById("desc");
+            
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
     
@@ -63,7 +65,7 @@
                 // prediction[2].className    gpu
                 // prediction[4].className    m.b
                 if (total_predict > 0.9){
-                    description.innerHTML = "<p>cpu</p>";
+                    desc.innerHTML = "<p>cpu</p>";
                 }
             }
         }
