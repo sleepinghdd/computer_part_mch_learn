@@ -60,8 +60,9 @@
             const prediction = await model.predict(webcam.canvas);
             for (let i = 0; i < maxPredictions; i+=2) {
                 const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2) + prediction[i+1].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
+                
             }
         }
     </script>
