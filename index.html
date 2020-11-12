@@ -60,7 +60,7 @@
             for (let i = 0; i < maxPredictions; i+=2) {
                 total_predict = prediction[i].probability + prediction[i+1].probability;
                 const classPrediction =
-                    prediction[i].className + ": " + total_predict;
+                    prediction[i].className + ": " + (prediction[i].probability + prediction[i+1].probability).fixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
                 // prediction[0].className    cpu
                 // prediction[2].className    gpu
