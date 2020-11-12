@@ -21,7 +21,7 @@
     
         let model, webcam, labelContainer, maxPredictions;
         let desc;
-        var total_predict;
+        var total_predict = [];
         async function init() {
             
             
@@ -58,15 +58,21 @@
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
             for (let i = 0; i < maxPredictions; i+=2) {
-                total_predict = prediction[i].probability + prediction[i+1].probability;
+                total_predict[i] = prediction[i].probability + prediction[i+1].probability;
                 const classPrediction =
                     prediction[i].className + ": " + total_predict.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
                 // prediction[0].className    cpu
                 // prediction[2].className    gpu
                 // prediction[4].className    m.b
-                if (total_predict > 0.9){
+                if (total_predict[0] > 0.9){
                     desc.innerHTML = "<p>cpu</p>";
+                }
+                else if(total_predict[1] > 0.9){
+                    desc.innerHTML = "<p>gpu</p>";
+                }
+                else if(total_predict[2] > 0.9){
+                    desc.innerHTML = "<p>m.b</p>";
                 }
             }
         }
