@@ -20,7 +20,7 @@
     
         let model, webcam, labelContainer, maxPredictions;
         var description = document.getElementById("dcpt");
-
+        var total_predict;
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -54,7 +54,7 @@
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
             for (let i = 0; i < maxPredictions; i+=2) {
-                var total_predict = prediction[i].probability + prediction[i+1].probability;
+                total_predict = prediction[i].probability + prediction[i+1].probability;
                 const classPrediction =
                     prediction[i].className + ": " + total_predict.fixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
