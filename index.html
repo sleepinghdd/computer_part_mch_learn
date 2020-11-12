@@ -20,10 +20,10 @@
         const URL = "./";
     
         let model, webcam, labelContainer, maxPredictions;
-        var desc;
+        let desc;
         var total_predict;
         async function init() {
-            dexc = document.getElementById("desc");
+            
             
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -42,6 +42,7 @@
             // append elements to the DOM
             document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
+            desc = document.getElementById("desc");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
