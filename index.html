@@ -28,7 +28,7 @@
         
         async function init() {
             desc_cpu = '<p> CPU: 중앙처리장치(central processing unit)<br>인간에 비유하였을때 뇌의 연산,논리적인 부분에 해당한다.<br>cpu의 처리속도를 클럭이라고 하며 단위는 Ghz를 사용한다.<br><img src="cpu.jpg" width="60%"></p>'
-            
+            desc_gpu = '<p><img src="gpu.jpg" width="60%"><br> GPU: 그래픽처리장치(central processing unit)<br>단순연산에 특화된 장치이다<br><br>cpu에는 적은 수의 고성능의 코어로 이뤄져있는 반면<br>gpu는 하나하나의 단순한 연산이 가능한 매우 많은 코어수로 이뤄져있다<br>그리하여 그래픽연산을 매우 빠르게할수있다.</p>'
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
     
@@ -72,7 +72,7 @@
                     desc.innerHTML = desc_cpu;
                 }
                 else if(total_predict[2] > 0.9){
-                    desc.innerHTML = "<p>gpu</p>";
+                    desc.innerHTML = desc_gpu;
                 }
                 else if(total_predict[4] > 0.9){
                     desc.innerHTML = "<p>m.b</p>";
