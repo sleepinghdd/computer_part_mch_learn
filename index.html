@@ -23,7 +23,7 @@
         let desc;
         var total_predict = [];
         async function init() {
-            var desc_text;
+            var desc_cpu = '<p> CPU: 중앙처리장치(central processing unit)<br>인간에 비유하였을때 뇌의 연산,논리적인 부분에 해당한다.<br>cpu의 처리속도를 클럭이라고 하며 단위는 Ghz를 사용한다.</p>'
             
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -65,7 +65,7 @@
                 // prediction[2].className    gpu
                 // prediction[4].className    m.b
                 if (total_predict[0] > 0.9){
-                    desc.innerHTML = "<p>cpu</p>";
+                    desc.innerHTML = desc_cpu;
                 }
                 else if(total_predict[2] > 0.9){
                     desc.innerHTML = "<p>gpu</p>";
