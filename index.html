@@ -63,7 +63,7 @@
             const prediction = await model.predict(webcam.canvas);
             for (let i = 0; i < maxPredictions; i+=2) {
                 total_predict[i] = prediction[i].probability + prediction[i+1].probability;
-                const classPrediction =
+                var classPrediction =
                     prediction[i].className + ": " + total_predict[i].toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
                 // prediction[0].className    cpu
